@@ -2,33 +2,84 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Vista en Teléfono</title>
-  <style>
-    /* Contenedor que simula el marco del teléfono */
-    .phone-frame {
-      width: 375px;           /* ancho típico de un teléfono */
-      height: 667px;          /* altura típica */
-      border: 16px solid #333; /* borde que simula el contorno del dispositivo */
-      border-radius: 36px;    /* bordes redondeados para dar la forma del teléfono */
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-      margin: 50px auto;      /* centra el teléfono en la página */
-      position: relative;
-      background-color: #000; /* fondo para el marco */
-    }
+  <title>Vista en iPhone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    /* Estilos para el iframe que contendrá la app */
-    .phone-screen {
+  <!-- Favicon -->
+  <link rel="icon" href="./favicon.png" type="image/png">
+
+  <style>
+    /* Eliminar scroll vertical y horizontal */
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden; /* Oculta cualquier scroll */
       width: 100%;
       height: 100%;
+    }
+
+    /* Sección izquierda: título y banner de Google Play */
+    .left-section {
+      position: absolute;
+      top: 50%;
+      left: 200px;           /* Ajusta la distancia al borde izquierdo */
+      transform: translateY(-50%);
+      text-align: left;
+    }
+    /* Contenedor para el título */
+    .left-section .title-container {
+      margin-bottom: 20px;   /* Espacio entre el título y el banner */
+    }
+
+    /* Sección central: teléfono centrado */
+    .phone-section {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); /* Centra horizontal y verticalmente */
+    }
+
+    /* Contenedor con la imagen del iPhone */
+    .device-frame {
+      width: 390px;   /* Ajusta al ancho real de tu PNG */
+      height: 870px;  /* Ajusta al alto real de tu PNG */
+      background: url("iphoneframe.png") no-repeat center center;
+      background-size: contain;
+      position: relative; /* Para posicionar el iframe dentro */
+    }
+
+    /* Iframe que representa la pantalla del dispositivo */
+    .device-screen {
+      position: absolute;
+      top: 60px;       /* Ajusta según el mockup en Figma */
+      left: 25px;      /* Ajusta según el mockup en Figma */
+      width: 340px;    /* Ajusta según el mockup en Figma */
+      height: 750px;   /* Ajusta según el mockup en Figma */
       border: none;
-      border-radius: 20px; /* para evitar que el contenido sobresalga del frame */
+      border-radius: 40px; /* Ajusta la curvatura de las esquinas */
     }
   </style>
 </head>
 <body>
-  <div class="phone-frame">
-    <iframe class="phone-screen" src="https://subs-tracker-web-version.vercel.app"></iframe>
+
+  <!-- Sección Izquierda: Título y Google Play -->
+  <div class="left-section">
+    <div class="title-container">
+      <img src="./SubsTracker.png" alt="Subs Tracker Logo" style="width: 425px;">
+    </div>
+    <div class="google-play-container">
+      <a href="https://play.google.com/store/apps/details?id=com.dlsdevstudio.subsapp" target="_blank">
+        <img src="./google-play.png" alt="Disponible en Google Play" style="width: 280px;">
+      </a>
+    </div>
   </div>
+
+  <!-- Sección Central: Teléfono (frame + iframe) -->
+  <div class="phone-section">
+    <div class="device-frame">
+      <iframe class="device-screen" src="https://subs-tracker-web-version.vercel.app"></iframe>
+    </div>
+  </div>
+
 </body>
 </html>
