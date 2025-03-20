@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vista en Teléfono</title>
+  <style>
+    /* Contenedor que simula el marco del teléfono */
+    .phone-frame {
+      width: 375px;           /* ancho típico de un teléfono */
+      height: 667px;          /* altura típica */
+      border: 16px solid #333; /* borde que simula el contorno del dispositivo */
+      border-radius: 36px;    /* bordes redondeados para dar la forma del teléfono */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      margin: 50px auto;      /* centra el teléfono en la página */
+      position: relative;
+      background-color: #000; /* fondo para el marco */
+    }
+
+    /* Estilos para el iframe que contendrá la app */
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 20px; /* para evitar que el contenido sobresalga del frame */
+    }
+  </style>
+</head>
+<body>
+  <div class="phone-frame">
+    <iframe class="phone-screen" src="https://subs-tracker-web-version.vercel.app"></iframe>
+  </div>
+</body>
+</html>
